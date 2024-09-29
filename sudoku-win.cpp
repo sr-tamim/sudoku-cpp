@@ -36,12 +36,15 @@ public:
     // Random number generator
     int randomGenerator(int num)
     {
+        // num is the max limit of generated number
         return (rand() % num) + 1;
     }
 
     // Check if it is safe to put the number in a specific cell
     bool checkIfSafe(int i, int j, int num)
     {
+        // first check the row, then check the column
+        // then check the mini box
         return (isAbsentInRow(i, num) && isAbsentInCol(j, num) && isAbsentInBox(i - i % MINI_BOX_SIZE, j - j % MINI_BOX_SIZE, num));
     }
 
@@ -90,12 +93,15 @@ public:
     // Fill the board with values
     void fillValues()
     {
+        // To improve the efficiency we would fill the diagonal mini boxes first
+
         fillDiagonal();                  // Fill the diagonal MINI_BOX_SIZE x MINI_BOX_SIZE matrices
         fillRemaining(0, MINI_BOX_SIZE); // Fill remaining blocks
 
         // Copy the unsolved board to solved
         solved = unsolved;
 
+        // unsolved board is fully filled now, create empty cells in the board
         addEmptyCells(); // Remove the K no. of digits from the board
     }
 
@@ -415,7 +421,7 @@ StartGame:
             }
         }
 
-    goto HomeScreen;
+        goto HomeScreen;
 
     ExitGame:
         cout << "Thanks for playing! Goodbye.\n";
