@@ -273,10 +273,10 @@ void howToPlay()
 {
     clearScreen();
     cout << "==== How to Play ====\n\n";
-    cout << "Sudoku is a logic-based, combinatorial number-placement puzzle.\n";
-    cout << "The objective is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3x3 subgrids that compose the grid contain all of the digits from 1 to 9.\n";
+    cout << "Sudoku is a logic-based, combinatorial number-placement puzzle.\n\n";
+    cout << "The objective is to fill a 9x9 grid with digits so that each column, each row, and each of the nine 3x3 subgrids that compose the grid contain all of the digits from 1 to 9.\n\n";
     cout << "The puzzle setter provides a partially completed grid, which for a well-posed puzzle has a single solution.\n";
-    cout << "Completed puzzles are always a type of Latin square with an additional constraint on the contents of individual regions.\n";
+    cout << "Completed puzzles are always a type of Latin square with an additional constraint on the contents of individual regions.\n\n";
     cout << "For more information, visit: https://en.wikipedia.org/wiki/Sudoku \n\n";
     system("pause");
 }
@@ -409,11 +409,13 @@ StartGame:
             {
                 clearScreen();
                 board.printSudoku();
-                cout << "\nCongratulations! You've solved the Sudoku puzzle!\n";
+                cout << "\n\nCongratulations! You've solved the Sudoku puzzle!\n\n\n";
                 system("pause");
                 break;
             }
         }
+
+    goto HomeScreen;
 
     ExitGame:
         cout << "Thanks for playing! Goodbye.\n";
